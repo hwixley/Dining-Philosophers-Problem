@@ -5,6 +5,7 @@ use std::time::Duration;
 struct Fork;
 
 struct Philosopher {
+    index: usize,
     name: String,
     left_fork: Arc<Mutex<Fork>>,
     right_fork: Arc<Mutex<Fork>>,
@@ -23,6 +24,12 @@ impl Philosopher {
         let _left = self.left_fork.lock().unwrap();
         let _right = self.right_fork.lock().unwrap();
 
+        let mut table = "".to_string();
+        table.push_str(&"💭".repeat(self.index));
+        table.push_str("🍝");
+        table.push_str(&"💭".repeat(4-self.index));
+        // println!("🍝".repeat(5-index));
+        println!("\n{}", table);
         println!("{} is eating...", &self.name);
         thread::sleep(Duration::from_millis(10));
     }
@@ -51,6 +58,7 @@ fn main() {
         }
 
         let philosopher = Philosopher {
+            index: i,
             name: PHILOSOPHERS[i].to_string(),
             thoughts: tx,
             left_fork,

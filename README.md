@@ -9,6 +9,79 @@ Five philosophers dine together at the same table. Each philosopher has their ow
 
 <hr>
 
+## Logical View
+
+```mermaid
+graph TD
+    
+    %% Philosophers (Light Yellow, Round Rectangles)
+    Pythagoras[Pythagoras 🍽️]
+    Plato[Plato 🍽️]
+    Hypatia[Hypatia 🍽️]
+    Socrates[Socrates 🍽️]
+    Aristotle[Aristotle 🍽️]
+    
+    %% Plates (Green, Circles)
+    Plate0((Plate 0))
+    Plate1((Plate 1))
+    Plate2((Plate 2))
+    Plate3((Plate 3))
+    Plate4((Plate 4))
+
+    %% Forks (Blue, Squares)
+    Fork0[Fork 0]
+    Fork1[Fork 1]
+    Fork2[Fork 2]
+    Fork3[Fork 3]
+    Fork4[Fork 4]
+
+    %% Connect philosophers to their plates and forks
+    Pythagoras --> Plate0
+    Plato --> Plate1
+    Hypatia --> Plate2
+    Socrates --> Plate3
+    Aristotle --> Plate4
+
+    subgraph Table
+    Plate0 --> Fork0
+    Plate0 --> Fork4
+
+    Plate1 --> Fork1
+    Plate1 --> Fork0
+
+    Plate2 --> Fork1
+    Plate2 --> Fork2
+
+    Plate3 --> Fork2
+    Plate3 --> Fork3
+
+    Plate4 --> Fork3
+    Plate4 --> Fork4
+    end
+
+    %% Custom Styles for Nodes
+    style Pythagoras fill:#f26,stroke:#8b4513,stroke-width:2px
+    style Plato fill:#f26,stroke:#8b4513,stroke-width:2px
+    style Hypatia fill:#f26,stroke:#8b4513,stroke-width:2px
+    style Socrates fill:#f26,stroke:#8b4513,stroke-width:2px
+    style Aristotle fill:#f26,stroke:#8b4513,stroke-width:2px
+
+    style Plate0 fill:#00008B,stroke:#006400,stroke-width:2px
+    style Plate1 fill:#00008B,stroke:#006400,stroke-width:2px
+    style Plate2 fill:#00008B,stroke:#006400,stroke-width:2px
+    style Plate3 fill:#00008B,stroke:#006400,stroke-width:2px
+    style Plate4 fill:#00008B,stroke:#006400,stroke-width:2px
+
+    style Fork0 fill:#228B22,stroke:#4682b4,stroke-width:2px
+    style Fork1 fill:#228B22,stroke:#4682b4,stroke-width:2px
+    style Fork2 fill:#228B22,stroke:#4682b4,stroke-width:2px
+    style Fork3 fill:#228B22,stroke:#4682b4,stroke-width:2px
+    style Fork4 fill:#228B22,stroke:#4682b4,stroke-width:2px
+
+```
+
+<hr>
+
 ## Sequence Diagram
 
 ```mermaid
